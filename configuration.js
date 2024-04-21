@@ -52,8 +52,8 @@ async function updateTheNavigationBar() {
 
 async function signup() {
     let email = document.getElementById("email").value;
-    let username = document.getElementById("username").value;
-    let password = document.getElementById("password").value;
+    let username = document.getElementById("user").value;
+    let password = document.getElementById("pass").value;
     let customer = {email:email, username: username, password: password}
     let request = {
         method: "POST",
@@ -63,7 +63,7 @@ async function signup() {
         body: JSON.stringify(customer)
       };
       try {
-        let response = await fetch(getHost() + "/signup", request);
+        let response = await fetch(getHost() + "/register", request);
         if(response.status == 200) {  
             alert("The registration was successful!")
             location.href = "login.html";
@@ -82,8 +82,8 @@ async function signup() {
 
 
 async function login() {    
-    let username = document.getElementById("username").value;
-    let password = document.getElementById("password").value;
+    let username = document.getElementById("user").value;
+    let password = document.getElementById("pass").value;
     let customer = {username: username, password: password}
     let request = {
         method: "POST",
